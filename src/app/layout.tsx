@@ -20,10 +20,10 @@ export default function RootLayout({
 
 	useEffect(() => {
 		const handleResize = () => {
-			setIsDesktop(window.innerWidth >= 768); // Adjust the breakpoint as needed
+			setIsDesktop(window.innerWidth >= 768);
 		};
 
-		handleResize(); // Set initial width
+		handleResize();
 
 		window.addEventListener('resize', handleResize);
 
@@ -35,10 +35,6 @@ export default function RootLayout({
 	return (
 		<>
 			<html lang='en'>
-				<head>
-					<title>Title</title>
-					<meta name='description' content='Description' />
-				</head>
 				<body className={ubuntu.className}>
 					<AppRouterCacheProvider options={{ enableCssLayer: true }}>
 						{isDesktop ? (

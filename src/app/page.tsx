@@ -13,12 +13,13 @@ const metadata: Metadata = {
 
 export default function Home({ children }: { children: React.ReactNode }) {
 	return (
-		<main className='flex min-h-screen flex-col items-center p-24'>
+		<main className='flex min-h-screen flex-row w-full justify-center'>
 			<head>
 				<title>AHA | Home</title>
 				<meta name='description' content='Awesome AHA' />
 			</head>
 			<Dashboard />
+			<div>Followers</div>
 		</main>
 	);
 }
