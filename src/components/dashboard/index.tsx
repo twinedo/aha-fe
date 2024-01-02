@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Input from '../input';
 import { makeStyles, createStyles } from '@mui/styles';
 import Button from '../button';
+import { globalState$ } from '@/app/page';
 
 const useStyles = makeStyles({
 	slider: {
@@ -98,7 +99,14 @@ function Dashboard() {
 				<div className='h-[30px] w-full' />
 				<Divider className='opacity-10' />
 			</div>
-			<Button additionalClassName='w-[335px]'>Search</Button>
+			<Button
+				additionalClassName='w-[335px]'
+				onClick={() => {
+					// alert('test');
+					globalState$.assign({ currentPageHome: 'result' });
+				}}>
+				Search
+			</Button>
 		</div>
 	);
 }
