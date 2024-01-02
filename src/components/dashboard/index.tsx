@@ -63,7 +63,7 @@ function Dashboard() {
 	const classes = useStyles();
 
 	return (
-		<div className='flex flex-1 flex-col w-full h-[100vh] px-[130px] py-[54px]'>
+		<div className='flex flex-2 flex-col w-full h-[100vh] px-[130px] py-[54px]'>
 			<div className='flex flex-1 flex-col h-full'>
 				<div className='text-white text-2xl'>Search</div>
 				<div className='h-[20px] w-full' />
@@ -98,7 +98,7 @@ function Dashboard() {
 				<div className='h-[30px] w-full' />
 				<Divider className='opacity-10' />
 			</div>
-			<Button title='Search' additionalClassName='w-[335px]' />
+			<Button additionalClassName='w-[335px]'>Search</Button>
 		</div>
 	);
 }

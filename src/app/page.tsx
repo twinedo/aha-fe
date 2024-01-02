@@ -2,6 +2,7 @@
 import BottomNav from '@/components/bottom-nav';
 import Dashboard from '@/components/dashboard';
 import Sidebar from '@/components/sidebar';
+import CustomTabs from '@/components/tabs';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -12,6 +13,21 @@ const metadata: Metadata = {
 };
 
 export default function Home({ children }: { children: React.ReactNode }) {
+	const [isDesktop, setIsDesktop] = useState(true);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsDesktop(window.innerWidth >= 1440);
+		};
+
+		handleResize();
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
 	return (
 		<main className='flex min-h-screen flex-row w-full justify-center'>
 			<head>
@@ -19,7 +35,11 @@ export default function Home({ children }: { children: React.ReactNode }) {
 				<meta name='description' content='Awesome AHA' />
 			</head>
 			<Dashboard />
-			<div>Followers</div>
+			{isDesktop && (
+				<div className='flex w-[375px]'>
+					<CustomTabs />
+				</div>
+			)}
 		</main>
 	);
 }
