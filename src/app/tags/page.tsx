@@ -1,14 +1,9 @@
 'use client';
-import BottomNav from '@/components/bottom-nav';
-import Dashboard from '@/components/dashboard';
-import Sidebar from '@/components/sidebar';
 import TagsC from '@/components/tags-c';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 function Tags() {
 	return (
-		<main className='flex min-h-screen flex-col items-center p-24'>
+		<main className='flex min-h-screen flex-row w-full justify-center bg-[#1F1F1F] overflow-auto custom-scrollbar'>
 			<head>
 				<title>AHA | Tags</title>
 				<meta name='description' content='Awesome AHA' />
