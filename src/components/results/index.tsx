@@ -11,7 +11,7 @@ function Results() {
 	const [resultLength, setResultLength] = useState(0);
 
 	return (
-		<div className='flex flex-2 flex-col w-full h-screen overflow-hidden px-[24px] md:px-[130px] md:py-[54px]'>
+		<div className='flex flex-2 flex-col w-full h-screen overflow-hidden px-[24px] md:px-[130px] md:py-[54px] md:pt-[92px]'>
 			<div className='w-full sticky top-0 z-50 h-[70px] flex flex-row gap-[25px] items-center md:hidden '>
 				<button>
 					<GoChevronLeft
@@ -20,10 +20,20 @@ function Results() {
 						onClick={() => globalState$.assign({ currentPageHome: 'home' })}
 					/>
 				</button>
+
 				<div className='text-white text-2xl'>Home Page</div>
 			</div>
 			<div className='flex flex-1 flex-col'>
-				<div className='text-white text-2xl mb-[24px]'>Results</div>
+				<div className='flex flex-row items-center mb-[24px] gap-[25px]'>
+					<button className='hidden md:block'>
+						<GoChevronLeft
+							color='white'
+							size={26}
+							onClick={() => globalState$.assign({ currentPageHome: 'home' })}
+						/>
+					</button>
+					<div className='text-white text-2xl '>Results</div>
+				</div>
 
 				<div
 					className='flex flex-col h-full overflow-y-auto custom-scrollbar'

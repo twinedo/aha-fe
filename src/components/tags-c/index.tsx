@@ -8,7 +8,7 @@ function TagsC() {
 	const navigation = useRouter();
 
 	return (
-		<div className='flex flex-2 flex-col w-full h-screen overflow-hidden px-[24px] md:px-[130px] md:py-[54px]'>
+		<div className='flex flex-2 flex-col w-full h-screen overflow-hidden px-[24px] md:px-[130px] md:py-[54px] md:pt-[80px]'>
 			<div className='w-full sticky top-0 z-50 h-[70px] flex flex-row gap-[25px] items-center md:hidden '>
 				<button>
 					<GoChevronLeft

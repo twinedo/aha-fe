@@ -71,15 +71,15 @@ function Dashboard() {
 			</div>
 			<div className='flex flex-1 flex-col h-full'>
 				<div className='text-white text-2xl'>Search</div>
-				<div className='h-[20px] w-full' />
+				<div className='h-[16px] md:h-[20px] w-full' />
 				<Input placeholder='Keyword' />
-				<div className='h-[30px] w-full' />
-				<Divider className='opacity-10' />
-				<div className='h-[30px] w-full' />
-				<div className='text-white text-2xl mb-[20px]'>
-					# of results per page
+				<div className='h-[28px] md:h-[30px] w-full' />
+				<div className='hidden md:block'>
+					<Divider className='opacity-10' />
+					<div className='h-[30px] w-full' />
 				</div>
-				<div className='h-[20px] w-full' />
+				<div className='text-white text-2xl'># of results per page</div>
+				<div className='h-[16px] md:h-[20px] w-full' />
 
 				<div className='text-[48px] text-white font-bold'>
 					{resultLength}
@@ -88,7 +88,7 @@ function Dashboard() {
 					</span>
 				</div>
 				<div className='h-[20px] w-full' />
-				<div className='px-3'>
+				<div className='px-3 mb-[26vh] md:mb-[30px]'>
 					<Slider
 						defaultValue={3}
 						valueLabelDisplay='auto'
@@ -100,7 +100,7 @@ function Dashboard() {
 						classes={{ root: classes.slider }}
 					/>
 				</div>
-				<div className='h-[30px] w-full' />
+
 				<Divider className='opacity-10' />
 			</div>
 			<Button
