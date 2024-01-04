@@ -2,8 +2,8 @@
 import { Ubuntu } from 'next/font/google';
 import './globals.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import Sidebar from '@/components/sidebar';
-import BottomNav from '@/components/bottom-nav';
+import Sidebar from '@/navigation/sidebar';
+import BottomNav from '@/navigation/bottom-nav';
 import { useEffect, useState } from 'react';
 import Providers from '@/services/utils/provider';
 
