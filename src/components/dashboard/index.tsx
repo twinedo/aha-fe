@@ -1,7 +1,7 @@
-import { Box, Divider, Slider } from '@mui/material';
+import { Divider, Slider } from '@mui/material';
 import React, { useState } from 'react';
 import Input from '../input';
-import { makeStyles, createStyles } from '@mui/styles';
+import { makeStyles } from '@mui/styles';
 import Button from '../button';
 import { globalState$ } from '@/app/page';
 import Image from 'next/image';
@@ -78,7 +78,7 @@ function Dashboard() {
 					<Divider className='opacity-10' />
 					<div className='h-[30px] w-full' />
 				</div>
-				<div className='text-white text-2xl'># of results per page</div>
+				<div className='text-white text-2xl'># Of Results Per Page</div>
 				<div className='h-[16px] md:h-[20px] w-full' />
 
 				<div className='text-[48px] text-white font-bold'>

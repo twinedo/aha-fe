@@ -1,10 +1,7 @@
 'use client';
-import BottomNav from '@/components/bottom-nav';
 import Dashboard from '@/components/dashboard';
-import Sidebar from '@/components/sidebar';
 import CustomTabs from '@/components/tabs';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { enableReactTracking } from '@legendapp/state/config/enableReactTracking';
 import {
