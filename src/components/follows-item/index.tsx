@@ -15,14 +15,14 @@ function FollowsItem(props: TFollowsItem) {
 			<div className='flex flex-row flex-1 gap-[15px]'>
 				<img
 					className='w-10 h-10 rounded-[5px] border border-stone-50'
-					src='https://via.placeholder.com/40x40'
+					src={imgSource}
 				/>
 				<div className='flex flex-col'>
 					<div className="text-white text-base font-normal font-['Ubuntu'] leading-normal tracking-tight">
-						Fullname
+						{name}
 					</div>
 					<div className="opacity-50 text-white text-sm font-normal font-['Ubuntu'] leading-[21px] tracking-tight">
-						@username
+						{username}
 					</div>
 				</div>
 			</div>

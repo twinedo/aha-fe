@@ -37,8 +37,6 @@ const useStyles = makeStyles({
 });
 
 function Dashboard() {
-	const [resultLength, setResultLength] = useState(0);
-
 	const marks = [
 		{
 			value: 3,
@@ -63,6 +61,8 @@ function Dashboard() {
 	];
 
 	const classes = useStyles();
+	const [pageSizeSlider, setPageSizeSlider] = useState<number | number[]>(3);
+	const [search, setSearch] = useState('');
 
 	return (
 		<div className='flex flex-2 flex-col w-full h-[100vh] md:px-[130px] px-[20px] md:py-[54px] pb-[54px]'>
@@ -72,7 +72,11 @@ function Dashboard() {
 			<div className='flex flex-1 flex-col h-full'>
 				<div className='text-white text-2xl'>Search</div>
 				<div className='h-[16px] md:h-[20px] w-full' />
-				<Input placeholder='Keyword' />
+				<Input
+					placeholder='Keyword'
+					value={globalState$.get().search}
+					onChange={(e) => setSearch(e.target.value)}
+				/>
 				<div className='h-[28px] md:h-[30px] w-full' />
 				<div className='hidden md:block'>
 					<Divider className='opacity-10' />
@@ -82,7 +86,7 @@ function Dashboard() {
 				<div className='h-[16px] md:h-[20px] w-full' />
 
 				<div className='text-[48px] text-white font-bold'>
-					{resultLength}
+					{globalState$.get().totalResults}
 					<span className='text-[16px] font-normal ml-[10px] text-white'>
 						results
 					</span>
@@ -90,7 +94,7 @@ function Dashboard() {
 				<div className='h-[20px] w-full' />
 				<div className='px-3 mb-[26vh] md:mb-[30px]'>
 					<Slider
-						defaultValue={3}
+						defaultValue={globalState$.get().pageSize}
 						valueLabelDisplay='auto'
 						aria-labelledby='discrete-slider'
 						step={3}
@@ -98,6 +102,7 @@ function Dashboard() {
 						min={3}
 						max={50}
 						classes={{ root: classes.slider }}
+						onChange={(e, value) => setPageSizeSlider(value)}
 					/>
 				</div>
 
@@ -107,7 +112,12 @@ function Dashboard() {
 				additionalClassName='w-full md:w-[335px] mb-[24px]'
 				onClick={() => {
 					// alert('test');
-					globalState$.assign({ currentPageHome: 'result' });
+					globalState$.assign({
+						currentPageHome: 'result',
+						search: search,
+						pageSize: pageSizeSlider,
+						page: 1,
+					});
 				}}>
 				Search
 			</Button>

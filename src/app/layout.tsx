@@ -5,6 +5,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import Sidebar from '@/components/sidebar';
 import BottomNav from '@/components/bottom-nav';
 import { useEffect, useState } from 'react';
+import Providers from '@/services/utils/provider';
 
 const ubuntu = Ubuntu({
 	weight: ['300', '400', '500', '700'],
@@ -36,13 +37,15 @@ export default function RootLayout({
 		<>
 			<html lang='en'>
 				<body className={ubuntu.className}>
-					<AppRouterCacheProvider options={{ enableCssLayer: true }}>
-						{isDesktop ? (
-							<Sidebar>{children}</Sidebar>
-						) : (
-							<BottomNav>{children}</BottomNav>
-						)}
-					</AppRouterCacheProvider>
+					<Providers>
+						<AppRouterCacheProvider options={{ enableCssLayer: true }}>
+							{isDesktop ? (
+								<Sidebar>{children}</Sidebar>
+							) : (
+								<BottomNav>{children}</BottomNav>
+							)}
+						</AppRouterCacheProvider>
+					</Providers>
 				</body>
 			</html>
 		</>

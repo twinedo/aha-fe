@@ -28,11 +28,17 @@ configureObservablePersistence({
 type TGlobal = {
 	search: string;
 	currentPageHome: 'home' | 'result';
+	pageSize: number | number[];
+	page: number;
+	totalResults: number;
 };
 
 export const globalState$ = observable({
 	search: '',
 	currentPageHome: 'home',
+	pageSize: 3,
+	page: 1,
+	totalResults: 0,
 } as TGlobal);
 
 persistObservable(globalState$, {
@@ -55,8 +61,6 @@ export default function Home({ children }: { children: React.ReactNode }) {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
-
-	console.log('currentPage', globalState$.get().currentPageHome);
 
 	return (
 		<main className='flex min-h-screen  flex-row w-full justify-center bg-[#1F1F1F]'>
