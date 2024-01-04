@@ -35,7 +35,7 @@ function BottomNav({ children }: { children: React.ReactNode }) {
 				component='main'
 				sx={{
 					flexGrow: 1,
-					p: 3,
+					p: 0,
 				}}>
 				{children}
 			</Box>
@@ -45,7 +45,7 @@ function BottomNav({ children }: { children: React.ReactNode }) {
 					bottom: 0,
 					left: 0,
 					right: 0,
-					display: pathname === '/' || pathname === '/tags' ? 'block' : 'none',
+					display: pathname === '/' ? 'block' : 'none',
 				}}
 				elevation={3}>
 				<BottomNavigation

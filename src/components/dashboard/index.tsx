@@ -4,6 +4,7 @@ import Input from '../input';
 import { makeStyles, createStyles } from '@mui/styles';
 import Button from '../button';
 import { globalState$ } from '@/app/page';
+import Image from 'next/image';
 
 const useStyles = makeStyles({
 	slider: {
@@ -64,7 +65,10 @@ function Dashboard() {
 	const classes = useStyles();
 
 	return (
-		<div className='flex flex-2 flex-col w-full h-[100vh] px-[130px] py-[54px]'>
+		<div className='flex flex-2 flex-col w-full h-[100vh] md:px-[130px] px-[20px] md:py-[54px] pb-[54px]'>
+			<div className='md:hidden w-full h-[70px] flex items-center'>
+				<Image width={35} height={15} src='/assets/logo.png' alt='logo.png' />
+			</div>
 			<div className='flex flex-1 flex-col h-full'>
 				<div className='text-white text-2xl'>Search</div>
 				<div className='h-[20px] w-full' />
@@ -100,7 +104,7 @@ function Dashboard() {
 				<Divider className='opacity-10' />
 			</div>
 			<Button
-				additionalClassName='w-[335px]'
+				additionalClassName='w-full md:w-[335px] mb-[24px]'
 				onClick={() => {
 					// alert('test');
 					globalState$.assign({ currentPageHome: 'result' });

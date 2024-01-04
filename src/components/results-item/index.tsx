@@ -11,7 +11,7 @@ function ResultsItem(props: TResultItem) {
 	return (
 		<div className='flex flex-col gap-3'>
 			<img
-				className='w-[219px] h-[146px]'
+				className='w-full md:w-[219px] h-[223px] md:h-[146px]'
 				src='https://via.placeholder.com/219x146'
 			/>
 			<div className='flex flex-col'>

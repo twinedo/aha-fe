@@ -52,7 +52,6 @@ function Sidebar({ children }: { children: React.ReactNode }) {
 							width={35}
 							height={15}
 							src='/assets/logo.png'
-							className='w-[35px] h-[15px]'
 							alt='logo.png'
 						/>
 					</div>
@@ -78,13 +77,12 @@ function Sidebar({ children }: { children: React.ReactNode }) {
 					</List>
 				</Drawer>
 
-				<Box
-					component='main'
-					sx={{
+				<div
+					style={{
 						flexGrow: 1,
 					}}>
 					{children}
-				</Box>
+				</div>
 			</div>
 		</div>
 	);

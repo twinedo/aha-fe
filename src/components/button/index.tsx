@@ -15,7 +15,7 @@ function Button(props: TButton) {
 			onClick={onClick}
 			className={
 				variant === 'normal'
-					? `min-w-[335px] h-10 px-4 py-[13px] bg-white font-bold text-black rounded justify-center items-center gap-2.5 inline-flex hover:bg-[#121212] hover:text-white hover:border hover:border-[#FFFFFF] ${additionalClassName}`
+					? `w-full md:min-w-[335px] h-10 px-4 py-[13px] bg-white font-bold text-black rounded justify-center items-center gap-2.5 inline-flex hover:bg-[#121212] hover:text-white hover:border hover:border-[#FFFFFF] ${additionalClassName}`
 					: variant === 'outlined'
 					? `px-2.5 py-2 bg-white hover:bg-neutral-900 rounded-[20px] border border-white justify-center text-neutral-900 hover:text-white items-center gap-2.5 inline-flex ${additionalClassName}`
 					: variant === 'contained'
