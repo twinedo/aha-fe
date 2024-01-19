@@ -2,7 +2,7 @@ import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import FollowsItem from '../../components/follows-item';
+import FollowsItem from '../follows-item';
 import {
 	TFriends,
 	useGetFollowers,
@@ -107,8 +107,8 @@ export default function CustomTabs() {
 		<Box
 			sx={{
 				width: 375,
-				border: 1,
-				borderColor: 'white',
+				// border: 1,
+				// borderColor: 'white',
 				background: '#1B1B1B',
 				paddingTop: '32px',
 				paddingBottom: 0,
@@ -134,7 +134,7 @@ export default function CustomTabs() {
 			</Tabs>
 			{value === 'Followers' && (
 				<div
-					className='px-4 pt-[35px] max-h-[calc(100vh-85px)] overflow-y-scroll no-scrollbar'
+					className='px-4 pt-[35px] max-h-[calc(100vh-85px)] overflow-y-scroll custom-scrollbar'
 					onScroll={handleScroll}>
 					<ul className='flex flex-col h-[calc(100vh-137px)] gap-4'>
 						{newData?.map((o) => (
@@ -153,7 +153,7 @@ export default function CustomTabs() {
 			)}
 			{value === 'Following' && (
 				<div
-					className='px-4 pt-[35px] max-h-[calc(100vh-85px)] overflow-y-scroll no-scrollbar'
+					className='px-4 pt-[35px] max-h-[calc(100vh-85px)] overflow-y-scroll custom-scrollbar'
 					onScroll={handleScrollFollowing}>
 					<ul className='flex flex-col h-[calc(100vh-137px)] gap-4'>
 						{newDataFollowing?.map((o) => (

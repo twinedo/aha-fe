@@ -7,7 +7,7 @@ const nextConfig = {
 		remotePatterns: [
 			{
 				protocol: 'https',
-				hostname: 'https://cdn.fakercloud.com',
+				hostname: 'cdn.fakercloud.com',
 			},
 			{
 				protocol: 'https',

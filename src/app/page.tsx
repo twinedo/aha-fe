@@ -1,6 +1,6 @@
 'use client';
 import Dashboard from '@/components/dashboard';
-import CustomTabs from '@/navigation/tabs';
+import CustomTabs from '@/components/tabs';
 import { Metadata } from 'next';
 import { useEffect, useState } from 'react';
 import { enableReactTracking } from '@legendapp/state/config/enableReactTracking';

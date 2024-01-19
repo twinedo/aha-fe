@@ -2,10 +2,10 @@
 import { Ubuntu } from 'next/font/google';
 import './globals.css';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
-import Sidebar from '@/navigation/sidebar';
-import BottomNav from '@/navigation/bottom-nav';
 import { useEffect, useState } from 'react';
 import Providers from '@/services/utils/provider';
+import Sidebar from '@/components/sidebar';
+import BottomNav from '@/components/bottom-nav';
 
 const ubuntu = Ubuntu({
 	weight: ['300', '400', '500', '700'],
@@ -34,20 +34,18 @@ export default function RootLayout({
 	}, []);
 
 	return (
-		<>
-			<html lang='en'>
-				<body className={ubuntu.className}>
-					<Providers>
-						<AppRouterCacheProvider options={{ enableCssLayer: true }}>
-							{isDesktop ? (
-								<Sidebar>{children}</Sidebar>
-							) : (
-								<BottomNav>{children}</BottomNav>
-							)}
-						</AppRouterCacheProvider>
-					</Providers>
-				</body>
-			</html>
-		</>
+		<html lang='en'>
+			<body className={ubuntu.className}>
+				<Providers>
+					<AppRouterCacheProvider options={{ enableCssLayer: true }}>
+						{isDesktop ? (
+							<Sidebar>{children}</Sidebar>
+						) : (
+							<BottomNav>{children}</BottomNav>
+						)}
+					</AppRouterCacheProvider>
+				</Providers>
+			</body>
+		</html>
 	);
 }
