@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 import Button from '../button';
 import { globalState$ } from '@/app/page';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const useStyles = makeStyles({
 	slider: {
@@ -70,7 +71,12 @@ function Dashboard() {
 				<Image width={35} height={15} src='/assets/logo.png' alt='logo.png' />
 			</div>
 			<div className='flex flex-1 flex-col h-full'>
-				<div className='text-white text-2xl'>Search</div>
+				<div className='flex flex-row justify-between'>
+					<div className='text-white text-2xl'>Search</div>
+					<Link href='/exam1'>
+						<div className='text-white text-2xl'>Go to Exam 1</div>
+					</Link>
+				</div>
 				<div className='h-[16px] md:h-[20px] w-full' />
 				<Input
 					placeholder='Keyword'

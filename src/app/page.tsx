@@ -63,24 +63,26 @@ export default function Home({ children }: { children: React.ReactNode }) {
 	}, []);
 
 	return (
-		<main className='flex min-h-screen  flex-row w-full justify-center bg-[#1F1F1F]'>
-			<head>
-				<title>
-					AHA |{' '}
-					{globalState$.get().currentPageHome === 'home' ? 'Home' : 'Results'}
-				</title>
-				<meta name='description' content='Awesome AHA' />
-			</head>
-			{globalState$.get().currentPageHome === 'home' ? (
-				<Dashboard />
-			) : (
-				<Results />
-			)}
-			{isDesktop && (
-				<div className='flex w-[375px]'>
-					<CustomTabs />
-				</div>
-			)}
-		</main>
+		<>
+			<main className='flex min-h-screen  flex-row w-full justify-center bg-[#1F1F1F]'>
+				<head>
+					<title>
+						{`AHA | Home`}
+						{globalState$.get().currentPageHome === 'home' ? 'Home' : 'Results'}
+					</title>
+					<meta name='description' content='Awesome AHA' />
+				</head>
+				{globalState$.get().currentPageHome === 'home' ? (
+					<Dashboard />
+				) : (
+					<Results />
+				)}
+				{isDesktop && (
+					<div className='flex w-[375px]'>
+						<CustomTabs />
+					</div>
+				)}
+			</main>
+		</>
 	);
 }
