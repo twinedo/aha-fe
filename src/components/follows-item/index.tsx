@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../button';
+import Image from 'next/image';
 
 type TFollowsItem = {
 	imgSource: string;
@@ -13,7 +14,10 @@ function FollowsItem(props: TFollowsItem) {
 	return (
 		<div className='flex flex-row items-center'>
 			<div className='flex flex-row flex-1 gap-[15px]'>
-				<img
+				<Image
+					width={40}
+					height={40}
+					alt='imgSource'
 					className='w-10 h-10 rounded-[5px] border border-stone-50'
 					src={imgSource}
 				/>

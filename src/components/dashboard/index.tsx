@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import Input from '../input';
 import { makeStyles } from '@mui/styles';
 import Button from '../button';
-import { globalState$ } from '@/app/page';
 import Image from 'next/image';
 import Link from 'next/link';
+import { observable } from '@legendapp/state';
+import { persistObservable } from '@legendapp/state/persist';
+import { ObservablePersistLocalStorage } from '@legendapp/state/persist-plugins/local-storage';
 
 const useStyles = makeStyles({
 	slider: {
@@ -37,6 +39,27 @@ const useStyles = makeStyles({
 	},
 });
 
+export type TGlobal = {
+	search: string;
+	currentPageHome: 'home' | 'result';
+	pageSize: number | number[];
+	page: number;
+	totalResults: number;
+};
+
+export const allState$ = observable({
+	search: '',
+	currentPageHome: 'home',
+	pageSize: 3,
+	page: 1,
+	totalResults: 0,
+});
+
+persistObservable(allState$, {
+	local: 'allState$aha',
+	pluginLocal: ObservablePersistLocalStorage,
+});
+
 function Dashboard() {
 	const marks = [
 		{
@@ -62,7 +85,7 @@ function Dashboard() {
 	];
 
 	const classes = useStyles();
-	const [pageSizeSlider, setPageSizeSlider] = useState<number | number[]>(3);
+	const [pageSizeSlider, setPageSizeSlider] = useState<any>(3);
 	const [search, setSearch] = useState('');
 
 	return (
@@ -80,7 +103,7 @@ function Dashboard() {
 				<div className='h-[16px] md:h-[20px] w-full' />
 				<Input
 					placeholder='Keyword'
-					value={globalState$.get().search}
+					value={allState$.get().search}
 					onChange={(e) => setSearch(e.target.value)}
 				/>
 				<div className='h-[28px] md:h-[30px] w-full' />
@@ -92,7 +115,7 @@ function Dashboard() {
 				<div className='h-[16px] md:h-[20px] w-full' />
 
 				<div className='text-[48px] text-white font-bold'>
-					{globalState$.get().totalResults}
+					{allState$.get().totalResults}
 					<span className='text-[16px] font-normal ml-[10px] text-white'>
 						results
 					</span>
@@ -100,7 +123,7 @@ function Dashboard() {
 				<div className='h-[20px] w-full' />
 				<div className='px-3 mb-[26vh] md:mb-[30px]'>
 					<Slider
-						defaultValue={globalState$.get().pageSize}
+						defaultValue={allState$.get().pageSize}
 						valueLabelDisplay='auto'
 						aria-labelledby='discrete-slider'
 						step={3}
@@ -118,10 +141,10 @@ function Dashboard() {
 				additionalClassName='w-full md:w-[335px] mb-[24px]'
 				onClick={() => {
 					// alert('test');
-					globalState$.assign({
+					allState$.assign({
 						currentPageHome: 'result',
 						search: search,
-						pageSize: pageSizeSlider,
+						pageSize: pageSizeSlider!,
 						page: 1,
 					});
 				}}>

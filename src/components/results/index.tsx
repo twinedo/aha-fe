@@ -5,14 +5,15 @@ import { makeStyles, createStyles } from '@mui/styles';
 import Button from '../button';
 import { GoChevronLeft } from 'react-icons/go';
 import ResultsItem from '../results-item';
-import { globalState$ } from '@/app/page';
+
 import { useGetSearch } from '@/services/api/search';
 import { TFriends } from '@/services/api/friends';
+import { allState$ } from '../dashboard';
 
 function Results() {
 	const [resultLength, setResultLength] = useState(0);
 
-	const { search, pageSize, page } = globalState$.get();
+	const { search, pageSize, page } = allState$.get();
 
 	const { data, isFetching, hasNextPage, fetchNextPage } = useGetSearch({
 		keyword: search,
@@ -31,7 +32,7 @@ function Results() {
 		if (data) {
 			setTotalPages(data.pages[data.pages.length - 1]?.totalPages);
 			setPageResults(data.pages[data.pages.length - 1]?.page);
-			globalState$.assign({
+			allState$.assign({
 				totalResults: data.pages[data.pages.length - 1]?.total,
 			});
 			let newArr: TFriends[] = [];
@@ -52,7 +53,7 @@ function Results() {
 					<GoChevronLeft
 						color='white'
 						size={26}
-						onClick={() => globalState$.assign({ currentPageHome: 'home' })}
+						onClick={() => allState$.assign({ currentPageHome: 'home' })}
 					/>
 				</button>
 
@@ -64,7 +65,7 @@ function Results() {
 						<GoChevronLeft
 							color='white'
 							size={26}
-							onClick={() => globalState$.assign({ currentPageHome: 'home' })}
+							onClick={() => allState$.assign({ currentPageHome: 'home' })}
 						/>
 					</button>
 					<div className='text-white text-2xl '>Results</div>

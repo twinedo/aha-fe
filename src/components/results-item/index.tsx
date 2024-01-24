@@ -13,6 +13,7 @@ function ResultsItem(props: TResultItem) {
 			<img
 				className='w-full md:w-[219px] h-[223px] md:h-[146px]'
 				src='https://via.placeholder.com/219x146'
+				alt='result'
 			/>
 			<div className='flex flex-col'>
 				<div className="text-white text-[14.90px] font-normal font-['Ubuntu'] leading-snug tracking-tight">

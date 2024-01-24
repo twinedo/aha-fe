@@ -1,12 +1,9 @@
 'use client';
 import InputPassword from '@/components/input-password';
-import AnimatedInputLabel from '@/components/input-password';
-import { CssBaseline, Popover, TextField } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import { CssBaseline } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { GoChevronLeft } from 'react-icons/go';
-import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import Fade from '@mui/material/Fade';
 import { FaCheckCircle, FaRegCheckCircle } from 'react-icons/fa';
